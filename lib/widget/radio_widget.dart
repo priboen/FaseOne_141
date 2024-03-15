@@ -15,9 +15,13 @@ class _RadioWidgetState extends State<RadioWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(
-          "Masukan Jenis Kelamin",
-          style: TextStyle(fontSize: 15),
+        Row(
+          children: [
+            Text(
+              "Masukan Jenis Kelamin",
+              style: TextStyle(fontSize: 15),
+            ),
+          ],
         ),
         ListTile(
           title: Text('Laki-Laki'),

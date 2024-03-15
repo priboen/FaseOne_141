@@ -33,6 +33,13 @@ class _FormMenuState extends State<FormMenu> {
                   labelText: "Makanan",
                   hintText: "Masukkan Makanan yang kamu mau",
                   border: OutlineInputBorder()),
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Form ini wajib di isi!";
+                }
+                return null;
+              },
             ),
             const SizedBox(
               height: 15,
@@ -44,6 +51,13 @@ class _FormMenuState extends State<FormMenu> {
                   labelText: "Minuman",
                   hintText: "Masukkan Minuman yang kamu mau",
                   border: OutlineInputBorder()),
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Form ini wajib di isi!";
+                }
+                return null;
+              },
             ),
             const SizedBox(
               height: 15,
@@ -54,6 +68,13 @@ class _FormMenuState extends State<FormMenu> {
                   labelText: "Dessert",
                   hintText: "Masukkan Dessert yang kamu mau",
                   border: OutlineInputBorder()),
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Form ini wajib di isi!";
+                }
+                return null;
+              },
             ),
             const SizedBox(
               height: 15,

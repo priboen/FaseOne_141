@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:ucp_satu_pam_lanjut/data/Order.dart';
+import 'package:ucp_satu_pam_lanjut/page/third_screen.dart';
 import 'package:ucp_satu_pam_lanjut/widget/card_widget.dart';
+import 'package:ucp_satu_pam_lanjut/widget/footer_menu_widget.dart';
 import 'package:ucp_satu_pam_lanjut/widget/form_menu_widget.dart';
 
 class SecondScreen extends StatelessWidget {
@@ -26,10 +27,36 @@ class SecondScreen extends StatelessWidget {
             children: [
               CardWidget(nama: nama, notelp: notelp),
               FormMenu(
-                  menuKey: menuKey,
-                  etMakanan: namaMakanan,
-                  etMinuman: namaMinuman,
-                  etDessert: namaDessert)
+                menuKey: menuKey,
+                etMakanan: namaMakanan,
+                etMinuman: namaMinuman,
+                etDessert: namaDessert,
+              ),
+              FooterMenuWidget(onPressedNext: () {
+                if (menuKey.currentState!.validate()) {
+                  menuKey.currentState!.save();
+
+                  Order orderBaru = Order(
+                    nama: nama,
+                    notelp: notelp,
+                    makanan: namaMakanan.text,
+                    minuman: namaMinuman.text,
+                    dessert: namaDessert.text,
+                  );
+
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (orderBaru) => ThirdScreen(
+                                nama: nama,
+                                notelp: notelp,
+                                makanan: namaMakanan.text,
+                                minuman: namaMinuman.text,
+                                dessert: namaDessert.text,
+                              )),
+                      (route) => false);
+                }
+              })
             ],
           ),
         ],
